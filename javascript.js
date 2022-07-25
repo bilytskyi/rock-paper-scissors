@@ -21,35 +21,61 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toUpperCase();
 
     if (playerSelection == computerSelection) {
-        answer = `You both have ${playerSelection}! This is a DRAW!`;
+        answer = [`You both have ${playerSelection}! This is a DRAW!`, 0, 0];
         return answer;
     }
     else if (playerSelection == "ROCK" && computerSelection == "PAPER") {
-        answer = `You LOSE! ${computerSelection} beats ${playerSelection}`;
+        answer = [`You LOSE! ${computerSelection} beats ${playerSelection}`, 0, 1];
         return answer;
     }
     else if (playerSelection == "ROCK" && computerSelection == "SCISSORS") {
-        answer = `You WIN! ${playerSelection} beats ${computerSelection}`;
+        answer = [`You WIN! ${playerSelection} beats ${computerSelection}`, 1, 0];
         return answer;
     }
     else if (playerSelection == "PAPER" && computerSelection == "SCISSORS") {
-        answer = `You LOSE! ${computerSelection} beats ${playerSelection}`;
+        answer = [`You LOSE! ${computerSelection} beats ${playerSelection}`, 0, 1];
         return answer;
     }
     else if (playerSelection == "PAPER" && computerSelection == "ROCK") {
-        answer = `You WIN! ${playerSelection} beats ${computerSelection}`;
+        answer = [`You WIN! ${playerSelection} beats ${computerSelection}`, 1, 0];
         return answer;
     }
     else if (playerSelection == "SCISSORS" && computerSelection == "ROCK") {
-        answer = `You LOSE! ${computerSelection} beats ${playerSelection}`;
+        answer = [`You LOSE! ${computerSelection} beats ${playerSelection}`, 0, 1];
         return answer;
     }
     else if (playerSelection == "SCISSORS" && computerSelection == "PAPER") {
-        answer = `You WIN! ${playerSelection} beats ${computerSelection}`;
+        answer = [`You WIN! ${playerSelection} beats ${computerSelection}`, 1, 0];
         return answer;
     }
 }
 
-let myChoice = "rOcK";
+// Function play 5 rounds and track score
 
-console.log(playRound(myChoice, getComputerChoice()));
+function game(){
+
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++) {
+
+        let myChoice = prompt("Rock or Paper or Scissors?");
+        let roundResult = playRound(myChoice, getComputerChoice());
+        playerScore += roundResult[1];
+        computerScore += roundResult[2];
+        console.log(roundResult[0]);
+
+    }
+
+    if (playerScore > computerScore) {
+        console.log(`You WIN! Score ${playerScore} : ${computerScore}`);
+    }
+    else if (playerScore < computerScore) {
+        console.log(`You LOSE! Score ${playerScore} : ${computerScore}`);
+    }
+    else if (playerScore == computerScore) {
+        console.log(`DRAW! Score ${playerScore} : ${computerScore}`);
+    }
+}
+
+game();
