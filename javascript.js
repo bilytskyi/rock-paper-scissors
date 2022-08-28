@@ -59,8 +59,8 @@ function game(){
 
     for (let i = 0; i < 5; i++) {
 
-        let myChoice = prompt("Rock or Paper or Scissors?");
-        let roundResult = playRound(myChoice, getComputerChoice());
+        let playerSelection = prompt("Rock or Paper or Scissors?");
+        let roundResult = playRound(playerSelection, getComputerChoice());
         playerScore += roundResult[1];
         computerScore += roundResult[2];
         console.log(roundResult[0]);
@@ -78,4 +78,8 @@ function game(){
     }
 }
 
-game();
+//game();
+
+
+const keys = document.querySelectorAll('button');
+keys.forEach(key => key.addEventListener('click', playRound(playerSelection, getComputerChoice())));
