@@ -80,6 +80,12 @@ function game(){
 
 //game();
 
+function playGame() {
+
+    alert(playRound(this.getAttribute('class'), getComputerChoice()));
+
+}
+
 
 const keys = document.querySelectorAll('button');
-keys.forEach(key => key.addEventListener('click', playRound(playerSelection, getComputerChoice())));
+keys.forEach(key => key.addEventListener('click', playGame));
