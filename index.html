@@ -2,13 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <script src="javascript.js" defer></script>
+        <link rel="stylesheet" href="./style.css">
+        <script src="./javascript.js" defer></script>
         <title>Rock-Paper-Scissors</title>
     </head>
 
     <body>
-        <button class="rock" id="1">Rock</button>
-        <button class="paper">Paper</button>
-        <button class="scissors">Scissors</button>
+        <div class="ui-panel">
+            <p class="info">Click on button to choose your weapon!</p>
+            <p>Score:</p>
+            <p class="score">
+                <span class="human">0</span>
+                <span class="bot">0</span>
+            </p>
+        </div>
+        <div class="choice-buttons">
+            <button class="rock" id="1">Rock</button>
+            <button class="paper">Paper</button>
+            <button class="scissors">Scissors</button>
+        </div>
     </body>
 </html>

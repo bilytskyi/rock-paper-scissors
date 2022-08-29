@@ -80,12 +80,16 @@ function game(){
 
 //game();
 
-function playGame() {
-
-    alert(playRound(this.getAttribute('class'), getComputerChoice()));
-
-}
+let rock = 0;
 
 
-const keys = document.querySelectorAll('button');
-keys.forEach(key => key.addEventListener('click', playGame));
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (button.className == 'rock') {
+            rock += 1;
+        }
+        alert(rock);
+    });
+});
