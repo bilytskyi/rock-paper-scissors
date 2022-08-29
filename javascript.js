@@ -80,16 +80,39 @@ function game(){
 
 //game();
 
-let rock = 0;
-
+let playerScore = 0;
+let computerScore = 0;
 
 const buttons = document.querySelectorAll('button');
+const info = document.querySelector('.info');
+const bot = document.querySelector('.bot');
+const human = document.querySelector('.human');
+
+function resetGame() {
+    info.textContent = "Try again mortal..";
+    bot.textContent = "0";
+    human.textContent = "0";
+    playerScore = 0;
+    computerScore = 0;
+}
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (button.className == 'rock') {
-            rock += 1;
+        let roundResult = playRound(button.className, getComputerChoice());
+        playerScore += roundResult[1];
+        computerScore += roundResult[2];
+
+        info.textContent = roundResult[0];
+        bot.textContent = computerScore;
+        human.textContent = playerScore;
+
+        if (playerScore == 5) {
+            alert(`You WIN! Score ${playerScore} : ${computerScore}! You spend time in this ugly game, are you sure it's a WIN?`);
+            resetGame();
         }
-        alert(rock);
+        else if (computerScore == 5) {
+            alert(`You spend time in this ugly game! And you LOSE! Score ${playerScore} : ${computerScore}! What a LOSER!`);
+            resetGame();
+        }
     });
 });

@@ -10,7 +10,7 @@ body {
 .ui-panel, .choice-buttons {
     height: 220px;
     width: 440px;
-    border: 2px solid rgb(24, 24, 71);
+    border: 2px solid black;
     border-radius: 10px;
 }
 
@@ -30,4 +30,8 @@ body {
 
 button {
     margin: 3px;
+}
+
+.game-name {
+    margin-bottom: 36px;
 }
